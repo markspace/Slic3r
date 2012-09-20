@@ -364,7 +364,7 @@ sub discover_horizontal_shells {
                 my $neighbor_fill_surfaces = $self->layers->[$n]->fill_surfaces;
                 @$neighbor_fill_surfaces = ();
                 push @$neighbor_fill_surfaces, Slic3r::Surface->new
-                    (expolygon => $_, surface_type => S_TYPE_INTERNAL)
+                    (expolygon => $_, surface_type => ($i>2)?S_TYPE_INTERNAL:S_TYPE_INTERNALSOLID)
                     for @$internal;
                 
                 # assign new internal-solid surfaces to layer
